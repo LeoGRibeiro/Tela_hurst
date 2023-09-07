@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tela_hurst/constants.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;
@@ -13,48 +14,44 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: 9.0), // Para separar o texto do Divider
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontFamily: 'OpenSans',
-                    fontSize: 17,
-                  ),
-                ),
-                Row(
-                  // Foram utilizadas duas rows para alinhar o subtitulo a esquerda
-                  children: [
-                    Text(
-                      subtitle,
-                      style: const TextStyle(
-                        fontFamily: 'OpenSans',
-                        fontSize: 16,
-                        color: Colors.grey,
+      child: Container(
+        color: Colors.transparent,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 9.0), // Para separar o texto do Divider
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(title, style: kOptionsTextStyle),
+                  Row(
+                    // Foram utilizadas duas rows para alinhar o subtitulo a esquerda
+                    children: [
+                      Text(
+                        subtitle,
+                        style: kOptionsTextStyle.copyWith(
+                            fontSize: 15,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w300),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 20,
-                    ),
-                  ],
-                ),
-              ],
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          const Divider(
-            thickness: 1,
-          )
-        ],
+            const Divider(
+              thickness: 1,
+            )
+          ],
+        ),
       ),
       onTap: () {
         // Onde o parâmetro "rota" entraria definir a tela à ser aberta
